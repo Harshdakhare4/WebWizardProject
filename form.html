@@ -1,0 +1,276 @@
+<html>
+
+<head>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap');
+
+    .container {
+      width: 100%;
+      min-height: 20vh;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 120px;
+      background: #030303;
+    }
+
+    .but {
+      background-color: rgba(255, 255, 255, 0.986);
+      margin-left: 80px;
+      position: relative;
+      padding: 15px 25px;
+      font-size: 1.0rem;
+      color: var(--color);
+      border: 2px solid rgba(0, 0, 0, 0.5);
+      border-radius: 4px;
+      text-shadow: 0 0 15px var(--color);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+      transition: 0.5s;
+      z-index: 1;
+    }
+
+    .but:hover {
+      color: #fff;
+      border: 2px solid rgba(0, 0, 0, 0);
+      box-shadow: 0 0 0px var(--color);
+    }
+
+    .but::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--color);
+      z-index: -1;
+      transform: scale(0);
+      transition: 0.5s;
+    }
+
+    .but:hover::before {
+      transform: scale(1);
+      transition-delay: 0.5s;
+      box-shadow: 0 0 10px var(--color),
+        0 0 30px var(--color),
+        0 0 60px var(--color);
+    }
+
+    .but span {
+      position: absolute;
+      background: var(--color);
+      pointer-events: none;
+      border-radius: 2px;
+      box-shadow: 0 0 10px var(--color),
+        0 0 20px var(--color),
+        0 0 30px var(--color),
+        0 0 50px var(--color),
+        0 0 100px var(--color);
+      transition: 0.5s ease-in-out;
+      transition-delay: 0.25s;
+    }
+
+    .but:hover span {
+      opacity: 0;
+      transition-delay: 0s;
+    }
+
+    .but span:nth-child(1),
+    .but span:nth-child(3) {
+      width: 40px;
+      height: 4px;
+    }
+
+    .but:hover span:nth-child(1),
+    .but:hover span:nth-child(3) {
+      transform: translateX(0);
+    }
+
+    .but span:nth-child(2),
+    .but span:nth-child(4) {
+      width: 4px;
+      height: 40px;
+    }
+
+    .but:hover span:nth-child(1),
+    .but:hover span:nth-child(3) {
+      transform: translateY(0);
+    }
+
+    .but span:nth-child(1) {
+      top: calc(50% - 2px);
+      left: -50px;
+      transform-origin: left;
+    }
+
+    .but:hover span:nth-child(1) {
+      left: 50%;
+    }
+
+    .but span:nth-child(3) {
+      top: calc(50% - 2px);
+      right: -50px;
+      transform-origin: right;
+    }
+
+    .but:hover span:nth-child(3) {
+      right: 50%;
+    }
+
+    .but span:nth-child(2) {
+      left: calc(50% - 2px);
+      top: -50px;
+      transform-origin: top;
+    }
+
+    .but:hover span:nth-child(2) {
+      top: 50%;
+    }
+
+    .but span:nth-child(4) {
+      left: calc(50% - 2px);
+      bottom: -50px;
+      transform-origin: bottom;
+    }
+
+    .but:hover span:nth-child(4) {
+      bottom: 50%;
+      
+    }
+    .name{
+        border-radius: 40ch;
+        
+      }
+  </style>
+  <title>form</title>
+</head>
+
+<body style="background-repeat: no-repeat; background-size: 100% 100%;" background="bookback.avif">
+  <br><br>
+  <div Style="background-color:white;width:60%;height:60px;border:solid"><br>
+    <font size="5">&nbsp;&nbsp;&nbsp;&nbsp;LOGIN FORM</font>
+  </div>
+  <form name="myform" onsubmit="return validate()" style="background-color:black;width: 60%;">
+    <fieldset>
+      <font color="white">
+        <div style="position:fixed; right:30px; top:80px; width:35%; height:740px; 
+ border:thick solid;border-color:#030303;">
+          <image src="std1.jpg" width="100%" height="100%"></image>
+        </div>
+        <br><br> <label>*NAME: </label>
+        <input  class="name" type="text" name="name" size="30" placeholder="Must contain only alphabets.">      <br><br>
+        <label>*User ID: </label>
+        <input class="name"type="text" name="usid" size="30" placeholder="Must be of length 5 to 12 characters"><br><br>
+        <label>*PASSWORD: </label>
+        <input class="name"type="text" name="pass" size="30" placeholder="Must be of length 7 to 12 characters"><br><br>
+        <label> *Rewrite the password: </label>
+        <input class="name"type="text" name="repass" size="30" placeholder="Must be the same like password."><br><br>
+        <label>ADDRESS: </label>
+        <input class="name" type="text" name="adr" size="60" placeholder="Optional."><br><br>
+        <label for="country">*COUNTRY: </label>
+        <select class="name"name="country">
+          <option value="Default">Must select a country</option>
+          <option value="India">India</option>
+          <option value="USA">USA</option>
+          <option value="Japan">Japan</option>
+          <option value="EU">EU</option>
+        </select><br><br>
+        <label>*ZIP Code: </label>
+        <input class="name"type="text" name="zc" size="30" placeholder="Must only contain numbers."><br><br>
+        <label>*E-mail: </label>
+        <input class="name" type="email" name="emal" size="50"
+          placeholder="Required. must be of 'abc.xyz@gmail.com' format."><br><br>
+        <label>*Gender: </label>
+        <input class="name" type="radio" id="mg" name="gen"><label for="mg">Male</label>&nbsp;<input type="radio" id="fg"
+          name="gen"><label for="fg">Female</label>
+        <br><br>
+        <label>*Language: </label>
+        <input class="name"type="checkbox" id="eg" name="lang"><label for="eg">English</label>&nbsp;<input type="checkbox" id="neg"
+          name="lang">
+        <label for="neg">Non English</label>
+        <br><br>
+        <label>About:</label><br><br>
+      </font>
+      <textarea class="name" cols="100" rows="6" placeholder="     optional"></textarea><br><br>
+      <div class="container">
+        <button type="submit" class="but" style="--color:#ff0404;">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Submit</button>
+      </div>
+    </fieldset>
+  </form>
+  <script>
+    function validate() {
+      var x = 0;
+      var y = 0;
+      var nam = document.myform.name.value;
+      var letters = /^[A-Za-z]+$/;
+      var num = /^[0-9]+$/;
+      var mailform = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+      var zcode = document.myform.zc.value;
+      var uid = document.myform.usid.value;
+      var psw = document.myform.pass.value;
+      var repas = document.myform.repass.value;
+      var cnt = document.myform.country.value;
+      if (nam.length == 0 || zcode.length == 0 || document.myform.usid.value.length == 0 || psw.length == 0 || document.myform.emal.value.length == 0) {
+        alert("All * fields must be filled.");
+        return false;
+      }
+      if (nam.match(letters)) { }
+      else {
+        alert("Name should contain only alphabets.");
+        return false;
+      }
+      if (zcode.match(num)) { }
+      else {
+        alert("Zip code must be numeric.");
+        return false;
+      }
+      if (document.myform.emal.value.match(mailform)) { }
+      else {
+        alert("Email is of invalid format!")
+        return false;
+      }
+      if (document.myform.eg.checked || document.myform.neg.checked) { }
+      else {
+        alert("Select any Language");
+        return false;
+      }
+      if (uid.length < 5 || uid.length > 12) {
+        alert("User id should be of more than 5 and less than 12 characters.");
+        return false;
+      }
+      else if (psw.length < 7 || psw.length > 12) {
+        alert("Password should be greater than 7 and less than 12 characters.");
+        return false;
+      }
+      else if (psw != repas) {
+        alert("Password is not the same.");
+        return false;
+      }
+      else if (cnt == "Default") {
+        alert("Must select a country");
+        return false;
+      }
+      else if (document.myform.fg.checked || document.myform.mg.checked) {
+        x++;
+      }
+      else if (x == 0) {
+        alert("Select either Male/Female");
+        return false;
+      }
+      else {
+        document.write("form successfully submitted");
+        return true;
+      }
+    }
+
+  </script>
+</body>
+
+</html>
